@@ -90,7 +90,7 @@ renderResults(matches, displayDate, failedCount);
   function renderResults(matches, displayDate, failedCount) {
     if (matches.length === 0) {
       status.textContent = `No runs found for ${displayDate}.`;
-      results.innerHTML = `<div class="empty-state">No product sheets have a tab for ${displayDate}. Double-check the date, or that the tab naming (ddmmyy + shift code) matches what's in the sheets.</div>`;
+      results.innerHTML = `<div class="empty-state">No product sheets have a tab for ${displayDate}.</div>`;
       return;
     }
 
