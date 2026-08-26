@@ -50,7 +50,7 @@ body {
 a { color: inherit; }
 
 .page {
-  max-width: 780px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 4rem 1.5rem 6rem;
 }
@@ -294,6 +294,7 @@ h1.display {
 
 .legend {
   display: flex;
+  justify-content: center;
   gap: 1.1rem;
   flex-wrap: wrap;
   margin: 1.4rem 0 1rem;
@@ -304,7 +305,7 @@ h1.display {
 
 .legend span { display: inline-flex; align-items: center; gap: 5px; }
 
-.legend .swatch { display: inline-block; width: 16px; height: 0; }
+.legend .swatch { display: inline-block; width: 14px; height: 0; }
 .swatch.solid { border-top: 2px solid var(--accent); }
 .swatch.dash-a { border-top: 2px dashed var(--grade-a); }
 .swatch.dash-b { border-top: 2px dashed var(--grade-b); }
