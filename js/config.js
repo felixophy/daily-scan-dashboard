@@ -1,5 +1,5 @@
 window.QC_CONFIG = {
-  API_KEY: "AlzaSyB-2xBtеJDwieAzEQTМMkZKSf9dWХtВS3M",
+  API_KEY: "AIzaSyB-2xBteJDwieAzEQTMMkZKSf9dWXtBS3M",
 
   // The masterlist spreadsheet that lists every product and a
   // link to that product's own QC spreadsheet.
