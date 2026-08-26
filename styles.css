@@ -1,0 +1,327 @@
+/* ============================================================
+   QC Control Chart Dashboard — design tokens
+   Display: Big Shoulders (industrial signage character)
+   Body:    IBM Plex Sans
+   Data:    IBM Plex Mono (dates, tab codes, readouts)
+   ============================================================ */
+
+:root {
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --surface-alt: #ecedf2;
+  --ink: #161b26;
+  --ink-secondary: #5b6472;
+  --ink-muted: #9aa1ac;
+  --border: #e1e4e9;
+  --accent: #7c3aed;
+  --accent-ink: #4c1d95;
+  --accent-soft: #f1ebfc;
+  --grade-a: #16a34a;
+  --grade-b: #eab308;
+  --grade-c: #ef4444;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --shadow-card: 0 1px 2px rgba(22, 27, 38, 0.04), 0 8px 24px rgba(22, 27, 38, 0.05);
+  --font-display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+  --font-body: "IBM Plex Sans", -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: -1px -1px;
+  background-attachment: fixed;
+}
+
+a { color: inherit; }
+
+.page {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---- Typography ---- */
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.75rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+
+h1.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 7vw, 4.2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.92;
+  margin: 0;
+  color: var(--ink);
+}
+
+.lede {
+  color: var(--ink-secondary);
+  font-size: 1.02rem;
+  max-width: 46ch;
+  margin: 0.9rem 0 0;
+  line-height: 1.55;
+}
+
+/* ---- Scan form ---- */
+
+.scan-form {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2.25rem;
+  flex-wrap: wrap;
+}
+
+.scan-form input[type="date"] {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  min-width: 210px;
+  flex: 1 1 210px;
+}
+
+.scan-form button {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 0.85rem 1.9rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.scan-form button:hover:not(:disabled) { background: var(--accent); }
+.scan-form button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ---- Scan sweep ---- */
+
+.scan-track {
+  position: relative;
+  height: 2px;
+  background: var(--border);
+  margin-top: 2rem;
+  border-radius: 2px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.scan-track.active { opacity: 1; }
+
+.scan-beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: sweep 1.15s linear infinite;
+}
+
+@keyframes sweep {
+  from { transform: translateX(-140px); }
+  to { transform: translateX(calc(100% + 140px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scan-beam { animation: none; width: 100%; opacity: 0.55; }
+}
+
+.scan-status {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  margin-top: 0.75rem;
+  min-height: 1.2em;
+}
+
+/* ---- Results ---- */
+
+.results {
+  margin-top: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.result-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.05rem 1.3rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.result-card:hover { border-color: var(--accent); transform: translateX(3px); }
+
+.result-main { display: flex; flex-direction: column; gap: 0.2rem; }
+
+.result-product {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 0.01em;
+}
+
+.result-tab {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-secondary);
+}
+
+.result-arrow {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.empty-state, .error-state {
+  margin-top: 2rem;
+  padding: 1.75rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+.error-state { border-color: var(--grade-c); color: var(--grade-c); }
+
+/* ---- Chart page ---- */
+
+.back-link {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--ink-secondary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2.5rem;
+}
+
+.back-link:hover { color: var(--accent); }
+
+.chart-header { margin-bottom: 1.5rem; text-align: left; }
+
+.chart-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(1.7rem, 4.4vw, 2.5rem);
+  letter-spacing: 0.01em;
+  margin: 0 0 0.35rem;
+}
+
+.chart-sub {
+  font-family: var(--font-mono);
+  color: var(--ink-secondary);
+  font-size: 0.95rem;
+  margin: 0 0 0.15rem;
+}
+
+.chart-subtitle {
+  font-style: italic;
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  margin: 0 0 0.15rem;
+}
+
+.chart-date {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.legend {
+  display: flex;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  margin: 1.4rem 0 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--ink-secondary);
+}
+
+.legend span { display: inline-flex; align-items: center; gap: 5px; }
+
+.legend .swatch { display: inline-block; width: 16px; height: 0; }
+.swatch.solid { border-top: 2px solid var(--accent); }
+.swatch.dash-a { border-top: 2px dashed var(--grade-a); }
+.swatch.dash-b { border-top: 2px dashed var(--grade-b); }
+.swatch.dash-c { border-top: 2px dashed var(--grade-c); }
+
+.chart-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.chart-canvas-wrap { position: relative; width: 100%; height: 420px; }
+
+@media (max-width: 560px) {
+  .page { padding: 2.75rem 1.1rem 4rem; }
+  .chart-card { padding: 1.1rem; }
+  .chart-canvas-wrap { height: 320px; }
+}

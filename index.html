@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>QC Run Scanner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main class="page">
+    <p class="eyebrow">QC Control &middot; Salt Content</p>
+    <h1 class="display">Run Scanner</h1>
+    <p class="lede">Pick a date to pull every product run logged that day, straight from the source sheets.</p>
+
+    <form id="scan-form" class="scan-form">
+      <input type="date" id="date-input" required />
+      <button type="submit" id="scan-btn">Scan</button>
+    </form>
+
+    <div id="scan-track" class="scan-track"><div class="scan-beam"></div></div>
+    <p id="scan-status" class="scan-status"></p>
+
+    <div id="results" class="results"></div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/sheets-api.js"></script>
+  <script src="js/scanner.js"></script>
+</body>
+</html>
