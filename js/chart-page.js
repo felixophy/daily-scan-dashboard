@@ -146,7 +146,7 @@
             grid: { display: false },
           },
           y: {
-            title: { display: true, text: "Salt Content", color: "#898781", font: { size: 12 }, weight: "bold" },
+            title: { display: true, text: "Salt Content", color: "#898781", font: { size: 12, weight: "bold" } },
             ticks: { color: "#898781", font: { size: 10, weight: "bold" } },
             grid: { color: "rgba(137,135,129,0.15)" },
           },
