@@ -14,10 +14,15 @@
     runScan(dateInput.value);
   });
 
-  function toDDMMYY(isoDate) {
-    const [y, m, d] = isoDate.split("-");
-    return `${d}${m}${y.slice(2)}`;
-  }
+function toDDMMYY(isoDate) {
+  const date = new Date(isoDate + "T00:00:00");
+
+  const dd = String(date.getDate()).padStart(2, "0");
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const yy = String(date.getFullYear()).slice(-2);
+
+  return `${dd}${mm}${yy}`;
+}
 
   function setScanning(on) {
     scanBtn.disabled = on;
@@ -48,32 +53,39 @@
     }
 
     const ddmmyy = toDDMMYY(isoDate);
-    const displayDate = isoDate.split("-").reverse().join("/");
-    status.textContent = `Scanning ${products.length} products for ${ddmmyy}…`;
+const displayDate = isoDate.split("-").reverse().join("/");
 
-    const checks = await Promise.allSettled(
-      products.map(async (p) => {
-        const titles = await SheetsAPI.getSheetTitles(p.sheetId);
-        return titles
-          .filter((t) => t.startsWith(ddmmyy))
-          .map((t) => ({
-            product: p.name,
-            sheetId: p.sheetId,
-            tab: t,
-            shift: t.slice(ddmmyy.length).replace(/^[\s/-]+/, ""),
-          }));
+status.textContent = `Scanning ${products.length} products for ${ddmmyy}…`;
+
+const checks = await Promise.allSettled(
+  products.map(async (p) => {
+    const titles = await SheetsAPI.getSheetTitles(p.sheetId);
+
+    return titles
+      .map((t) => String(t).trim())
+      .filter((t) => {
+        return t.substring(0, 6) === ddmmyy;
       })
-    );
+      .map((t) => ({
+        product: p.name,
+        sheetId: p.sheetId,
+        tab: t,
+        shift: t.substring(ddmmyy.length).replace(/^[\s()/-]+|[\s()/-]+$/g, ""),
+      }));
+  })
+);
 
-    const matches = checks
-      .filter((r) => r.status === "fulfilled")
-      .flatMap((r) => r.value);
+const matches = checks
+  .filter((r) => r.status === "fulfilled")
+  .flatMap((r) => r.value);
 
-    const failedCount = checks.filter((r) => r.status === "rejected").length;
+const failedCount = checks.filter(
+  (r) => r.status === "rejected"
+).length;
 
-    setScanning(false);
-    renderResults(matches, displayDate, failedCount);
-  }
+setScanning(false);
+renderResults(matches, displayDate, failedCount);
+}
 
   function renderResults(matches, displayDate, failedCount) {
     if (matches.length === 0) {
