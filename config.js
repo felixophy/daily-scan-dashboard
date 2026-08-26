@@ -12,7 +12,7 @@
    ============================================================ */
 
 window.QC_CONFIG = {
-  API_KEY: "YOUR_GOOGLE_SHEETS_API_KEY",
+  API_KEY: "AlzaSyB-2xBtеJDwieAzEQTМMkZKSf9dWХtВS3M",
 
   // The masterlist spreadsheet that lists every product and a
   // link to that product's own QC spreadsheet.
