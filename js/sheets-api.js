@@ -15,14 +15,22 @@ const SheetsAPI = (() => {
     return k;
   }
 
-  async function request(url) {
+  async function request(url, attempt = 0) {
     const res = await fetch(url);
-    if (!res.ok) {
-      const body = await res.json().catch(() => ({}));
-      const msg = body?.error?.message || `${res.status} ${res.statusText}`;
-      throw new Error(msg);
+    if (res.ok) return res.json();
+
+    const body = await res.json().catch(() => ({}));
+    const isQuota = res.status === 429 || body?.error?.status === "RESOURCE_EXHAUSTED";
+
+    if (isQuota && attempt < 4) {
+      // Exponential backoff with a little jitter: ~1s, 2s, 4s, 8s.
+      const delay = Math.min(1000 * 2 ** attempt, 8000) + Math.random() * 300;
+      await new Promise((r) => setTimeout(r, delay));
+      return request(url, attempt + 1);
     }
-    return res.json();
+
+    const msg = body?.error?.message || `${res.status} ${res.statusText}`;
+    throw new Error(msg);
   }
 
   /** Extracts a spreadsheet ID from a full Google Sheets URL. */
