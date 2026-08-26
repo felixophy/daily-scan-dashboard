@@ -49,7 +49,7 @@
 
     const ddmmyy = toDDMMYY(isoDate);
     const displayDate = isoDate.split("-").reverse().join("/");
-    status.textContent = `Scanning ${products.length} products for ${displayDate}…`;
+    status.textContent = `Scanning ${products.length} products for ${ddmmyy}…`;
 
     const checks = await Promise.allSettled(
       products.map(async (p) => {
