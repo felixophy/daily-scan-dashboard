@@ -7,7 +7,7 @@ const SheetsAPI = (() => {
 
   function key() {
     const k = window.QC_CONFIG.API_KEY;
-    if (!k || k === "YOUR_GOOGLE_SHEETS_API_KEY") {
+    if (!k || k === "AlzaSyB-2xBtеJDwieAzEQTМMkZKSf9dWХtВS3M") {
       throw new Error(
         "No Google Sheets API key set. Add one in js/config.js."
       );
