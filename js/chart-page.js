@@ -128,8 +128,7 @@
               anchor: "end",
               offset: 4,
               color: "#5B21B6",
-              font: { size: 11 },
-              weight: "bold",
+              font: { size: 10, weight: "bold" },
               formatter: (v) => (Number.isFinite(v) ? v.toFixed(2) : ""),
             },
           },
@@ -138,17 +137,17 @@
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        layout: { padding: { top: 20 } },
+        layout: { padding: { top: 15 } },
         plugins: { legend: { display: false }, datalabels: { display: false } },
         scales: {
           x: {
-            title: { display: true, text: "Time", color: "#898781", font: { size: 12 }, weight: "bold" },
-            ticks: { autoSkip: false, maxRotation: 45, minRotation: 45, color: "#898781", font: { size: 10 } },
+            title: { display: true, text: "Time", color: "#898781", font: { size: 12, weight: "bold" } },
+            ticks: { autoSkip: false, maxRotation: 45, minRotation: 45, color: "#898781", font: { size: 10, weight: "bold" } },
             grid: { display: false },
           },
           y: {
             title: { display: true, text: "Salt Content", color: "#898781", font: { size: 12 }, weight: "bold" },
-            ticks: { color: "#898781", font: { size: 10 } },
+            ticks: { color: "#898781", font: { size: 10, weight: "bold" } },
             grid: { color: "rgba(137,135,129,0.15)" },
           },
         },
