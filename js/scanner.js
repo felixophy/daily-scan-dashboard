@@ -89,12 +89,12 @@ renderResults(matches, displayDate, failedCount);
 
   function renderResults(matches, displayDate, failedCount) {
     if (matches.length === 0) {
-      status.textContent = `No product found for ${displayDate}.`;
-      results.innerHTML = `<div class="empty-state">No product sheets have a tab for ${displayDate}.</div>`;
+      status.textContent = `No product found for ${ddmmyy}.`;
+      results.innerHTML = `<div class="empty-state">No product sheets have a tab for ${ddmmyy}.</div>`;
       return;
     }
 
-    status.textContent = `${matches.length} run${matches.length === 1 ? "" : "s"} found for ${displayDate}.` +
+    status.textContent = `${matches.length} run${matches.length === 1 ? "" : "s"} found for ${ddmmyy}.` +
       (failedCount ? ` (${failedCount} product sheet${failedCount === 1 ? "" : "s"} couldn't be read.)` : "");
 
     results.innerHTML = matches
