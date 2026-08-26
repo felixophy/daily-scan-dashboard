@@ -85,9 +85,12 @@
 
       <div class="legend">
         <span><span class="swatch solid"></span>% salt &minus; blank</span>
-        <span><span class="swatch dash-a"></span>Grade A limits</span>
-        <span><span class="swatch dash-b"></span>Grade B limits</span>
-        <span><span class="swatch dash-c"></span>Grade C limits</span>
+        <span><span class="swatch dash-a"></span>Grade A (high)</span>
+        <span><span class="swatch dash-a"></span>Grade A (low)</span>
+        <span><span class="swatch dash-b"></span>Grade B (high)</span>
+        <span><span class="swatch dash-b"></span>Grade B (low)</span>
+        <span><span class="swatch dash-c"></span>Grade C (high)</span>
+        <span><span class="swatch dash-c"></span>Grade C (low)</span>
       </div>
 
       <div class="chart-card">
@@ -126,6 +129,7 @@
               offset: 4,
               color: "#5B21B6",
               font: { size: 11 },
+              weight: "bold",
               formatter: (v) => (Number.isFinite(v) ? v.toFixed(2) : ""),
             },
           },
@@ -138,12 +142,12 @@
         plugins: { legend: { display: false }, datalabels: { display: false } },
         scales: {
           x: {
-            title: { display: true, text: "Time", color: "#898781", font: { size: 12 } },
+            title: { display: true, text: "Time", color: "#898781", font: { size: 12 }, weight: "bold" },
             ticks: { autoSkip: false, maxRotation: 45, minRotation: 45, color: "#898781", font: { size: 10 } },
             grid: { display: false },
           },
           y: {
-            title: { display: true, text: "% salt", color: "#898781", font: { size: 12 } },
+            title: { display: true, text: "Salt Content", color: "#898781", font: { size: 12 }, weight: "bold" },
             ticks: { color: "#898781", font: { size: 10 } },
             grid: { color: "rgba(137,135,129,0.15)" },
           },
