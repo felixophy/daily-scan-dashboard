@@ -6,12 +6,12 @@
    ============================================================ */
 
 :root {
-  --bg: #f5f6f8;
-  --surface: #ffffff;
+  --bg: #9CAF88;
+  --surface: #9CAF88;
   --surface-alt: #ecedf2;
-  --ink: #161b26;
-  --ink-secondary: #5b6472;
-  --ink-muted: #9aa1ac;
+  --ink: #ffffff;
+  --ink-secondary: #005720;
+  --ink-muted: #005720;
   --border: #e1e4e9;
   --accent: #7c3aed;
   --accent-ink: #4c1d95;
@@ -39,9 +39,7 @@ html, body {
 }
 
 body {
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-image:"https://tse4.mm.bing.net/th/id/OIP.4INLrLadsbodolODK5OW6wHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
   background-size: 48px 48px;
   background-position: -1px -1px;
   background-attachment: fixed;
@@ -266,6 +264,7 @@ h1.display {
 .chart-title {
   font-family: var(--font-display);
   text-transform: uppercase;
+  font-weight: 700;
   font-size: clamp(1.7rem, 4.4vw, 2.5rem);
   letter-spacing: 0.01em;
   margin: 0 0 0.35rem;
@@ -275,6 +274,7 @@ h1.display {
   font-family: var(--font-mono);
   color: var(--ink-secondary);
   font-size: 0.95rem;
+  font-weight: 700;
   margin: 0 0 0.15rem;
 }
 
@@ -282,6 +282,7 @@ h1.display {
   font-style: italic;
   color: var(--ink-muted);
   font-size: 0.85rem;
+  font-weight: 700;
   margin: 0 0 0.15rem;
 }
 
@@ -289,13 +290,14 @@ h1.display {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--ink-muted);
+  font-weight: 700;
   margin: 0;
 }
 
 .legend {
   display: flex;
   justify-content: center;
-  gap: 1.1rem;
+  gap: 1.05rem;
   flex-wrap: wrap;
   margin: 1.4rem 0 1rem;
   font-family: var(--font-mono);
@@ -305,7 +307,7 @@ h1.display {
 
 .legend span { display: inline-flex; align-items: center; gap: 5px; }
 
-.legend .swatch { display: inline-block; width: 14px; height: 0; }
+.legend .swatch { display: inline-block; width: 12px; height: 0; }
 .swatch.solid { border-top: 2px solid var(--accent); }
 .swatch.dash-a { border-top: 2px dashed var(--grade-a); }
 .swatch.dash-b { border-top: 2px dashed var(--grade-b); }
