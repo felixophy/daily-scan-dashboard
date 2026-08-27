@@ -177,7 +177,7 @@ h1.display {
 
 @keyframes sweep {
   from { transform: translateX(-140px); }
-  to { transform: translateX(calc(100% + 140px)); }
+  to { transform: translateX(100vw); }
 }
 
 @media (prefers-reduced-motion: reduce) {
