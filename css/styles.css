@@ -32,7 +32,7 @@ html, body {
 }
 
 body {
-  background-image:url ("https://tse4.mm.bing.net/th/id/OIP.4INLrLadsbodolODK5OW6wHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3");
+  background-image:url ("https://static.vecteezy.com/system/resources/previews/020/498/877/non_2x/watercolor-light-emerald-ombre-background-texture-aquarelle-abstract-pastel-green-gradient-backdrop-photo.jpg");
   background-size: 48px 48px;
   background-position: -1px -1px;
   background-attachment: fixed;
@@ -106,7 +106,7 @@ h1.display {
   font-family: var(--font-mono);
   font-size: 1.05rem;
   padding: 0.85rem 1rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--ink-muted);
   border-radius: var(--radius-sm);
   background: var(--surface);
   color: var(--ink-muted);
@@ -153,7 +153,7 @@ h1.display {
   left: 0;
   width: 140px;
   height: 100%;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  background: linear-gradient(90deg, transparent, var(--ink-secondary), transparent);
   animation: sweep 1.15s linear infinite;
 }
 
