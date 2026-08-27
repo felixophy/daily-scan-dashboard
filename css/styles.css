@@ -32,9 +32,9 @@ html, body {
 }
 
 body {
-  background-image:url ("https://static.vecteezy.com/system/resources/previews/020/498/877/non_2x/watercolor-light-emerald-ombre-background-texture-aquarelle-abstract-pastel-green-gradient-backdrop-photo.jpg");
-  background-size: 48px 48px;
-  background-position: -1px -1px;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/020/498/877/non_2x/watercolor-light-emerald-ombre-background-texture-aquarelle-abstract-pastel-green-gradient-backdrop-photo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
@@ -60,7 +60,7 @@ a { color: inherit; }
 }
 
 .logo img {
-  width: 90px;
+  width: auto;
   height: auto;
 }
 
