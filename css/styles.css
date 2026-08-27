@@ -24,6 +24,7 @@
 
 html, body {
   margin: 0;
+  min-height: 100%;
   padding: 0;
   background: var(--bg);
   color: var(--ink);
@@ -32,6 +33,7 @@ html, body {
 }
 
 body {
+  min-height: 100vh;
   background-image:
     radial-gradient(ellipse at center, rgba(245, 246, 248, 0) 0%, rgba(245, 246, 248, 0.75) 70%, rgba(245, 246, 248, 1) 100%),
     url("https://img.magnific.com/free-vector/natural-green-hand-painted-watercolor-texture-background_1017-39357.jpg?w=2000");
