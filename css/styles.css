@@ -65,7 +65,7 @@ a { color: inherit; }
   font-size: 0.75rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--accent-ink);
+  color: var(--ink-secondary);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -308,7 +308,7 @@ h1.display {
 .legend span { display: inline-flex; align-items: center; gap: 5px; }
 
 .legend .swatch { display: inline-block; width: 12px; height: 0; }
-.swatch.solid { border-top: 2px solid var(--accent); }
+.swatch.solid { border-top: 2px solid #7c3aed; }
 .swatch.dash-a { border-top: 2px dashed var(--grade-a); }
 .swatch.dash-b { border-top: 2px dashed var(--grade-b); }
 .swatch.dash-c { border-top: 2px dashed var(--grade-c); }
