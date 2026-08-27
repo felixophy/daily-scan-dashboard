@@ -279,7 +279,7 @@ h1.display {
 }
 
 .chart-subtitle {
-  font-style: italic;
+  font-style: normal;
   color: var(--ink-muted);
   font-size: 0.85rem;
   font-weight: 700;
@@ -314,7 +314,7 @@ h1.display {
 .swatch.dash-c { border-top: 2px dashed var(--grade-c); }
 
 .chart-card {
-  background: var(--surface);
+  background: var(--surface-alt);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 1.5rem;
