@@ -51,6 +51,19 @@ a { color: inherit; }
   outline-offset: 2px;
 }
 
+/*---- Company Logo ----*/
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  z-index: 10;
+}
+
+.logo img {
+  width: 90px;
+  height: auto;
+}
+
 /* ---- Typography ---- */
 
 .eyebrow {
