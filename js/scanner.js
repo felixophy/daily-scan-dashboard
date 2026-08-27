@@ -141,7 +141,7 @@
     }
 
     status.textContent = `${matches.length} run${matches.length === 1 ? "" : "s"} found for ${displayDate}.` +
-      (failedCount ? ` (${failedCount} product sheet${failedCount === 1 ? "" : "s"} couldn't be read — try again shortly if you're expecting more.)` : "");
+      (failedCount ? ` (${failedCount} product sheet${failedCount === 1 ? "" : "s"} couldn't be read — try again shortly to see the updated data.)` : "");
 
     results.innerHTML = matches
       .map((m) => {
