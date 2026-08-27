@@ -268,7 +268,7 @@ h1.display {
   margin-bottom: 2.5rem;
 }
 
-.back-link:hover { color: var(--accent); }
+.back-link:hover { color: var(--ink-muted); }
 
 .chart-header { margin-bottom: 1.5rem; text-align: left; }
 
