@@ -11,10 +11,11 @@
 </head>
 <body>
   <main class="page">
-    <a id="back-link" class="back-link" href="index.html">&larr; Back to scanner</a>
     <div id="chart-body">
       <p class="scan-status">Loading run…</p>
     </div>
+
+    <button id="share-btn" class="share-link" type="button">&#128279; Share</button>
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
@@ -22,5 +23,43 @@
   <script src="js/config.js"></script>
   <script src="js/sheets-api.js"></script>
   <script src="js/chart-page.js"></script>
+  <script>
+    (function () {
+      const btn = document.getElementById('share-btn');
+      if (!btn) return;
+
+      btn.addEventListener('click', async () => {
+        const url = window.location.href;
+
+        // Use native share sheet on mobile/supported browsers
+        if (navigator.share) {
+          try {
+            await navigator.share({ title: document.title, url });
+            return;
+          } catch (err) {
+            // user cancelled or share failed — fall through to clipboard
+          }
+        }
+
+        // Fallback: copy link to clipboard
+        try {
+          await navigator.clipboard.writeText(url);
+          const original = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(() => { btn.textContent = original; }, 1500);
+        } catch (err) {
+          // Final fallback: select a temp input for manual copy
+          const temp = document.createElement('input');
+          temp.value = url;
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand('copy');
+          document.body.removeChild(temp);
+          btn.textContent = 'Copied!';
+          setTimeout(() => { btn.textContent = '&#128279; Share'; }, 1500);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
